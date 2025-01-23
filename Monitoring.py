@@ -918,49 +918,10 @@ def start_monitoring():
         html_content = f"""
             <div style="border: 2px solid #4CAF50; border-radius: 10px; padding: 20px; background-color: #f9f9f9;">
                 <h4 style="color: #4CAF50; text-align: center; margin-bottom: 20px;">Summary for the selected {area_selected}</h4>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; gap: 20px;">
-                    <div style="flex: 1; text-align: center;">
-                        <div style="position: relative; width: 150px; height: 150px; border-radius: 50%; 
-                                    background: conic-gradient(#4CAF50 {health_status * 3.6}deg, #ddd {health_status * 3.6}deg); 
-                                    display: flex; align-items: center; justify-content: center;">
-                            <div style="position: absolute; width: 120px; height: 120px; background: white; border-radius: 50%; 
-                                        display: flex; align-items: center; justify-content: center; font-size: 20px; color: #000;">
-                                <div>Good</div>
-                            </div>
-                        </div>
-                        <p style="margin-top: 10px; font-size: 16px;">Current Health</p>
-                    </div>
-                    <div style="flex: 1; text-align: center;">
-                        <div style="position: relative; width: 150px; height: 150px; border-radius: 50%; 
-                                    background: conic-gradient(#FF5722 {another_health_status * 3.6}deg, #ddd {another_health_status * 3.6}deg); 
-                                    display: flex; align-items: center; justify-content: center;">
-                            <div style="position: absolute; width: 120px; height: 120px; background: white; border-radius: 50%; 
-                                        display: flex; align-items: center; justify-content: center; font-size: 20px; color: #000;">
-                                <div>{estimated_yield}<br>[{target_yield}]</div>
-                            </div>
-                        </div>
-                        <p style="margin-top: 10px; font-size: 16px;">Yield Status (Grams)</p>
-                    </div>
-                    <!-- Add the table next to Yield Status -->
-                    <div style="flex: 1; text-align: center;">
-                        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
-                            <thead>
-                                <tr style="background-color: #4CAF50; color: white;">
-                                    <th style="padding: 10px; border: 1px solid #ddd;">Crop Number</th>
-                                    <th style="padding: 10px; border: 1px solid #ddd;">Crop Name</th>
-                                    <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="background-color: #FFDDDD;">
-                                    <td style="padding: 10px; border: 1px solid #ddd;">7</td>
-                                    <td style="padding: 10px; border: 1px solid #ddd;">Crop G</td>
-                                    <td style="padding: 10px; border: 1px solid #ddd;">Needs to Cut</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                    <div style="background-color: #F5F5F5; padding: 15px; border-radius: 5px; margin-top: 10px;">
+                    <strong>Upgrade to Pro Edition for full functionality.</strong><br>
+                    Register the <a href="https://docs.google.com/forms/d/e/1FAIpQLScRGRv0a-QztjHezvsyQXdPAyoGMPKRUKMkjqERKlYqKd1Viw/viewform?usp=dialog">Link</a> for further details.
+                 </div>
             </div>
         """
 
@@ -972,7 +933,10 @@ def start_monitoring():
         with st.expander("Crop Canopy & Yield Predictions"):
             # Add a title for the table
 
-            st.markdown("<h4 style='text-align: center; color: #4CAF50;'>Crop Canopy and Yield Predictions</h4>",
+            st.markdown("""<div style="background-color: #F5F5F5; padding: 15px; border-radius: 5px; margin-top: 10px;">
+                    <strong>Upgrade to Pro Edition for full functionality.</strong><br>
+                    Register the <a href="https://docs.google.com/forms/d/e/1FAIpQLScRGRv0a-QztjHezvsyQXdPAyoGMPKRUKMkjqERKlYqKd1Viw/viewform?usp=dialog">Link</a> for further details.
+                 </div>""",
                         unsafe_allow_html=True)
 
             # Display the DataFrame as a table
@@ -1017,31 +981,16 @@ def start_monitoring():
             f"""
                 <div class="recommendation-box">
                     <h4 style="color: #4CAF50; text-align: center;">Recommendations {selected_area['Area']}</h4>
-                    <p><strong>Current Week:</strong> {selected_area['Weekly Recommendation']['Week 2']}</p>
-                    <p><strong>Action:</strong> {selected_area['Weekly Recommendation']['Action']}</p>
-                    <p><strong>Pests:</strong> {selected_area['Weekly Recommendation']['Pests']}</p>
+                    <div style="background-color: #F5F5F5; padding: 15px; border-radius: 5px; margin-top: 10px;">
+                    <strong>Upgrade to Pro Edition for full functionality.</strong><br>
+                    Register the <a href="https://docs.google.com/forms/d/e/1FAIpQLScRGRv0a-QztjHezvsyQXdPAyoGMPKRUKMkjqERKlYqKd1Viw/viewform?usp=dialog">Link</a> for further details.
+                 </div>
                 </div>
                 """,
             unsafe_allow_html=True,
         )
 
-        # Toggle for More Info
-        if st.button("📖 Show More Info"):
-            st.markdown(
-                f"""
-                    <div class="more-info">
-                        <h4>Week 3 Recommendations</h4>
-                        <p><strong>Solution A:</strong> {selected_area['Future Recommendations']['Week 3']['Solution A']}</p>
-                        <p><strong>Solution B:</strong> {selected_area['Future Recommendations']['Week 3']['Solution B']}</p>
-                        <p><strong>Instructions:</strong> {selected_area['Future Recommendations']['Week 3']['Instructions']}</p>
-                        <h4>Week 4 Recommendations</h4>
-                        <p><strong>Solution A:</strong> {selected_area['Future Recommendations']['Week 4']['Solution A']}</p>
-                        <p><strong>Solution B:</strong> {selected_area['Future Recommendations']['Week 4']['Solution B']}</p>
-                        <p><strong>Instructions:</strong> {selected_area['Future Recommendations']['Week 4']['Instructions']}</p>
-                    </div>
-                    """,
-                unsafe_allow_html=True,
-            )
+
 
         # CSS for Styling
         st.markdown(
@@ -1988,39 +1937,6 @@ def start_monitoring():
                 unsafe_allow_html=True,
             )
 
-    with st.expander("Click to view Area-wise Analyze for 19 Areas"):
-        st.markdown("<h4 style='text-align: center; color: #4CAF50;'>Area-wise Yield Analyze</h4>",
-                    unsafe_allow_html=True)
-        target_yield = 950  # grams
-
-        # Generate random estimated yields for 19 areas
-        areas = [f"Area {i + 1}" for i in range(1, 9)]
-        area_yields = [random.uniform(500, 700) for _ in range(8)]
-
-        # Create a DataFrame for area-wise reporting
-        area_data = pd.DataFrame({
-            "Area": areas,
-            "Estimated Yield (grams)": area_yields
-        })
-
-        # Add a column to classify yields as "Good" or "Needs Improvement"
-        area_data["Yield Status"] = area_data["Estimated Yield (grams)"].apply(
-            lambda x: "Good" if x >= (target_yield * 0.7) else "Needs Improvement"
-        )
-
-        area_data["Fertilizer (ml)"] = area_data.apply(
-            lambda row: f"Solution A: {random.randint(50, 250)} ml + Solution B: {random.randint(150, 350)} ml", axis=1
-        )
-
-
-        # Display the area report table
-        st.table(area_data)
-
-        # Explanation Section
-        st.markdown("""
-        
-        """, unsafe_allow_html=True)
-
-            # Display the 2D area visualization with the selected crop highlighted
+    
 
 
