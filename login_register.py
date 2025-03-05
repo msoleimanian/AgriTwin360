@@ -148,7 +148,7 @@ if ss.authenticated:
     st.stop()  # توقف تا فقط صفحه اصلی نمایش داده شود
 
 # --- صفحه ورود/ثبت‌نام ---
-st.markdown("<h1 style='text-align: center;'>Welcome to Agro Pluse Twin Hub</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Welcome to AgriTwin 360</h1>", unsafe_allow_html=True)
 st.markdown("<h4>Login or Register to Access Your Dashboard</h4>", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["🔑 Login", "📝 Register"])
